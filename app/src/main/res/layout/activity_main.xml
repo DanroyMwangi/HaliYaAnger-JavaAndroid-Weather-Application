@@ -1,0 +1,508 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainCL"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#4C72A1"
+    tools:context=".MainActivity">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/navBarCardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#4C72A1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/navBarCL"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#4C72A1"
+            android:padding="10dp">
+
+            <ImageButton
+                android:id="@+id/settingsBtn"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="10dp"
+                android:background="#4C72A1"
+                android:contentDescription="@string/settings"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/settings_foreground" />
+
+            <TextView
+                android:id="@+id/cityTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#4C72A1"
+                android:text="City"
+                android:textColor="@color/white"
+                android:textSize="50sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.526" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/mainWeatherCardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#4C72A1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/navBarCardView">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/weatherCL"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#4C72A1"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/weatherDescriptionTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="#4C72A1"
+                android:text="The weather is rainy"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/weatherIV" />
+
+            <ImageView
+                android:id="@+id/weatherIV"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:background="#4C72A1"
+                app:layout_constraintBottom_toTopOf="@+id/weatherDescriptionTV"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/_002_rainy" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/windCardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#4C72A1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mainWeatherCardView">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/windCL"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#4C72A1"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/windHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#4C72A1"
+                android:text="Wind"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@+id/windSpeedCV"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/windGustCV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#4C72A1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/windDirectionCV">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/windGustCL"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#4C72A1">
+
+                    <TextView
+                        android:id="@+id/windGustTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="#4C72A1"
+                        android:text="Gust:"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/gustIV" />
+
+                    <ImageView
+                        android:id="@+id/gustIV"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:background="#4C72A1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/_006_wind" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/windDirectionCV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="#4C72A1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/windGustCV"
+                app:layout_constraintStart_toEndOf="@+id/windSpeedCV">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/windDirectionCL"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#4C72A1">
+
+                    <ImageView
+                        android:id="@+id/windVaneIV"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:background="#4C72A1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/_044_weather_vane" />
+
+                    <TextView
+                        android:id="@+id/windDirectionTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="#4C72A1"
+                        android:text="Direction:"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/windVaneIV" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/windSpeedCV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#4C72A1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/windDirectionCV"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/windSpeedCL"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="#4C72A1">
+
+                    <ImageView
+                        android:id="@+id/anemometerIV"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:background="#4C72A1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/_040_anemometer" />
+
+                    <TextView
+                        android:id="@+id/windSpeedTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="#4C72A1"
+                        android:text="Speed:"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/anemometerIV" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/tempXOthersCardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#4C72A1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/windCardView">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/tempXOthersCL"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#4C72A1"
+            android:padding="10dp">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/humidity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#4C72A1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tempCV"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/humidityCL"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#4C72A1">
+
+                    <TextView
+                        android:id="@+id/humidityHeader"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="#4C72A1"
+                        android:text="Humidity"
+                        android:textColor="@color/white"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/humidityIV"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:background="#4C72A1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/humidityHeader"
+                        app:srcCompat="@drawable/_004_humidity" />
+
+                    <TextView
+                        android:id="@+id/humidityTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="#4C72A1"
+                        android:text="Humidity"
+                        android:textColor="@color/white"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/humidityIV" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/tempCV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="104dp"
+                android:background="#4C72A1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/humidity"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/tempCL"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#4C72A1">
+
+                    <ImageView
+                        android:id="@+id/tempIV"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:background="#4C72A1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tempHeader"
+                        app:srcCompat="@drawable/_039_thermometer" />
+
+                    <TextView
+                        android:id="@+id/tempMaxValueTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="#4C72A1"
+                        android:text="Maximum Value:"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tempIV" />
+
+                    <TextView
+                        android:id="@+id/tempHeader"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="#4C72A1"
+                        android:text="Tempurature"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/sunCardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#4C72A1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tempXOthersCardView">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/sunCL"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#4C72A1"
+            android:padding="10dp">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/sunsetCV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#4C72A1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/sunriseCV"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/sunsetCL"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#4C72A1">
+
+                    <ImageView
+                        android:id="@+id/sunsetIV"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:background="#4C72A1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/_025_sunset" />
+
+                    <TextView
+                        android:id="@+id/sunsetTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="#4C72A1"
+                        android:text="Sunset"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/sunsetIV" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/sunriseCV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#4C72A1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/sunsetCV"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/sunriseCL"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#4C72A1">
+
+                    <ImageView
+                        android:id="@+id/sunriseIV"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:background="#4C72A1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/_026_sunrise" />
+
+                    <TextView
+                        android:id="@+id/sunriseTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="#4C72A1"
+                        android:text="Sunrise"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/sunriseIV" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/creditsCardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#4C72A1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sunCardView"
+        app:layout_constraintVertical_bias="0.0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/creditsCL"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#4C72A1">
+
+            <TextView
+                android:id="@+id/creditsTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#4C72A1"
+                android:text="Developed by bof.ndungu"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
